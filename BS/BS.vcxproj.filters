@@ -43,8 +43,20 @@
     <ClInclude Include="tools.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="proto\smsTx.pb.h">
+    <ClInclude Include="DataBusiness.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DataOperate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTransfer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\bcTx.pb.h">
       <Filter>protoc</Filter>
+    </ClInclude>
+    <ClInclude Include="PareData.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -69,12 +81,24 @@
     <ClCompile Include="tools.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="proto\smsTx.pb.cc">
+    <ClCompile Include="DataBusiness.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DataOperate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTransfer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\bcTx.pb.cc">
       <Filter>protoc</Filter>
+    </ClCompile>
+    <ClCompile Include="PareData.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="proto\smsTx.proto">
+    <None Include="proto\bcTx.proto">
       <Filter>protoc</Filter>
     </None>
   </ItemGroup>

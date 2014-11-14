@@ -1,0 +1,28 @@
+message BsTxMsg
+{
+
+	enum recvtype
+	{
+		FWJQ = 1;		//鉴权
+		KFQQ =2;		//扣费
+	}
+	message FwjqMsg
+	{
+		required uint32 nAuthenticationId;		//鉴权ID
+		required string  sQtsentid;						//企业ID
+		required uint32	nCategory;					//服务类型
+	}
+	message KfqqMsg
+	{
+		required string  sQtsentid;						//企业ID
+		required uint32	nCategory						//服务类型
+		required string sJSF;								//接收方
+	}
+	optional FwjqMsg fwjq;
+	optional KfqqMsg kfqq;
+}
+message BsfkMsg
+{
+	required uint32 nSerialId = 1;
+	required uint32 nRes = 2;   //0:ok,1:state error,2:no money,3:teach date,4:no register,5 no category
+}

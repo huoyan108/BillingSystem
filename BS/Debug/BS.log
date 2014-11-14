@@ -1,0 +1,236 @@
+﻿生成启动时间为 2014-11-11 10:19:25。
+     1>项目“D:\GitHub\BS\BS\BS.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\BS.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\BS.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BS.cpp DataBusiness.cpp DataOperate.cpp DataTransfer.cpp debuginfo.cpp IniOper.cpp PGDatabase.cpp PGRecordset.cpp proto\bcTx.pb.cc tools.cpp
+         tools.cpp
+     1>d:\github\bs\bs\tools.cpp(1): warning C4627: “#include "tools.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\tools.cpp(2): warning C4627: “#include <cctype>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\tools.cpp(135): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+         bcTx.pb.cc
+     1>d:\github\bs\bs\proto\bctx.pb.cc(5): warning C4627: “#include "bcTx.pb.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\proto\bctx.pb.cc(7): warning C4627: “#include <algorithm>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\proto\bctx.pb.cc(9): warning C4627: “#include <google/protobuf/stubs/common.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\proto\bctx.pb.cc(10): warning C4627: “#include <google/protobuf/stubs/once.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\proto\bctx.pb.cc(11): warning C4627: “#include <google/protobuf/io/coded_stream.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\proto\bctx.pb.cc(12): warning C4627: “#include <google/protobuf/wire_format_lite_inl.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\proto\bctx.pb.cc(13): warning C4627: “#include <google/protobuf/descriptor.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\proto\bctx.pb.cc(14): warning C4627: “#include <google/protobuf/generated_message_reflection.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\proto\bctx.pb.cc(15): warning C4627: “#include <google/protobuf/reflection_ops.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\proto\bctx.pb.cc(16): warning C4627: “#include <google/protobuf/wire_format.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\proto\bctx.pb.cc(665): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+         PGRecordset.cpp
+     1>d:\github\bs\bs\pgrecordset.cpp(1): warning C4627: “#include "PGRecordset.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\pgrecordset.cpp(2): warning C4627: “#include "libpq-fe.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\pgrecordset.cpp(30): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+         PGDatabase.cpp
+     1>d:\github\bs\bs\pgdatabase.cpp(1): warning C4627: “#include "libpq-fe.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\pgdatabase.cpp(2): warning C4627: “#include "PGDatabase.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\pgdatabase.cpp(3): warning C4627: “#include <assert.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\pgdatabase.cpp(116): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+         IniOper.cpp
+     1>d:\github\bs\bs\inioper.cpp(1): warning C4627: “#include "IniOper.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\inioper.cpp(3): warning C4627: “#include <unistd.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\inioper.cpp(4): warning C4627: “#include <string.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\inioper.cpp(5): warning C4627: “#include <iostream>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\inioper.cpp(465): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+         debuginfo.cpp
+     1>d:\github\bs\bs\debuginfo.cpp(5): warning C4627: “#include <stdarg.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\debuginfo.cpp(6): warning C4627: “#include "tools.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\debuginfo.cpp(21): warning C4005: “DEBUG_INFO”: 宏重定义
+                 d:\github\bs\bs\debuginfo.cpp(18) : 参见“DEBUG_INFO”的前一个定义
+     1>d:\github\bs\bs\debuginfo.cpp(22): warning C4005: “DEBUG_DUMP”: 宏重定义
+                 d:\github\bs\bs\debuginfo.cpp(19) : 参见“DEBUG_DUMP”的前一个定义
+     1>d:\github\bs\bs\debuginfo.cpp(113): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+         DataTransfer.cpp
+     1>d:\github\bs\bs\datatransfer.cpp(1): warning C4627: “#include "DataTransfer.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\datatransfer.cpp(72): warning C4627: “#include "./proto/smsTx.pb.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\datatransfer.cpp(195): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+         DataOperate.cpp
+     1>d:\github\bs\bs\dataoperate.h(9): error C2146: 语法错误: 缺少“;”(在标识符“ExplainData_BD”的前面)
+     1>d:\github\bs\bs\dataoperate.h(9): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(9): error C2061: 语法错误: 标识符“BYTE”
+     1>d:\github\bs\bs\dataoperate.h(9): warning C4183: “ExplainData_BD”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.h(10): error C2146: 语法错误: 缺少“;”(在标识符“ExplainData_UDP”的前面)
+     1>d:\github\bs\bs\dataoperate.h(10): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(10): error C2061: 语法错误: 标识符“BYTE”
+     1>d:\github\bs\bs\dataoperate.h(10): warning C4183: “ExplainData_UDP”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.h(11): error C2146: 语法错误: 缺少“;”(在标识符“ExplainData_TCP”的前面)
+     1>d:\github\bs\bs\dataoperate.h(11): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(11): error C2061: 语法错误: 标识符“BYTE”
+     1>d:\github\bs\bs\dataoperate.h(11): warning C4183: “ExplainData_TCP”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.h(13): error C2146: 语法错误: 缺少“;”(在标识符“SendToDS_XTJC”的前面)
+     1>d:\github\bs\bs\dataoperate.h(13): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(13): error C2061: 语法错误: 标识符“DWORD”
+     1>d:\github\bs\bs\dataoperate.h(13): warning C4183: “SendToDS_XTJC”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.h(14): error C2146: 语法错误: 缺少“;”(在标识符“SendToDS_DWXX”的前面)
+     1>d:\github\bs\bs\dataoperate.h(14): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(14): error C2061: 语法错误: 标识符“tagPosInfo”
+     1>d:\github\bs\bs\dataoperate.h(14): warning C4183: “SendToDS_DWXX”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.h(15): error C2146: 语法错误: 缺少“;”(在标识符“SendToDS_TXXX”的前面)
+     1>d:\github\bs\bs\dataoperate.h(15): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(15): error C2061: 语法错误: 标识符“tagCommInfo”
+     1>d:\github\bs\bs\dataoperate.h(15): warning C4183: “SendToDS_TXXX”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.h(16): error C2146: 语法错误: 缺少“;”(在标识符“SendToDS_TXHZ”的前面)
+     1>d:\github\bs\bs\dataoperate.h(16): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(16): error C2061: 语法错误: 标识符“tagSendBackInfo”
+     1>d:\github\bs\bs\dataoperate.h(16): warning C4183: “SendToDS_TXHZ”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.h(17): error C2146: 语法错误: 缺少“;”(在标识符“SendToDS_ZJXX”的前面)
+     1>d:\github\bs\bs\dataoperate.h(17): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(17): error C2061: 语法错误: 标识符“DWORD”
+     1>d:\github\bs\bs\dataoperate.h(17): warning C4183: “SendToDS_ZJXX”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.h(18): error C2146: 语法错误: 缺少“;”(在标识符“SendToDS_FKXX”的前面)
+     1>d:\github\bs\bs\dataoperate.h(18): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(18): error C2061: 语法错误: 标识符“DWORD”
+     1>d:\github\bs\bs\dataoperate.h(18): warning C4183: “SendToDS_FKXX”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.h(20): error C2146: 语法错误: 缺少“;”(在标识符“SendToBd_ICJC”的前面)
+     1>d:\github\bs\bs\dataoperate.h(20): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(20): error C2061: 语法错误: 标识符“DWORD”
+     1>d:\github\bs\bs\dataoperate.h(20): warning C4183: “SendToBd_ICJC”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.h(21): error C2146: 语法错误: 缺少“;”(在标识符“SendToBd_XTZJ”的前面)
+     1>d:\github\bs\bs\dataoperate.h(21): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(21): error C2061: 语法错误: 标识符“DWORD”
+     1>d:\github\bs\bs\dataoperate.h(21): warning C4183: “SendToBd_XTZJ”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.h(22): error C2146: 语法错误: 缺少“;”(在标识符“SendToBd_TXSQ”的前面)
+     1>d:\github\bs\bs\dataoperate.h(22): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(22): error C2061: 语法错误: 标识符“tagCommReq”
+     1>d:\github\bs\bs\dataoperate.h(22): warning C4183: “SendToBd_TXSQ”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.h(24): error C2146: 语法错误: 缺少“;”(在标识符“ComputeCheckSum”的前面)
+     1>d:\github\bs\bs\dataoperate.h(24): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.h(24): error C2061: 语法错误: 标识符“BYTE”
+     1>d:\github\bs\bs\dataoperate.h(24): warning C4183: “ComputeCheckSum”:  缺少返回类型；假定为返回“int”的成员函数
+     1>d:\github\bs\bs\dataoperate.cpp(29): error C2065: “CUNPACK_DWXX”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(30): error C2065: “CUNPACK_TXXX”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(31): error C2065: “CUNPACK_TXHZ”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(32): error C2065: “CUNPACK_ICXX”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(33): error C2065: “CUNPACK_ZJXX”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(34): error C2065: “CUNPACK_FKXX”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(37): error C2143: 语法错误 : 缺少“;”(在“CDataOperate::ExplainData_BD”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(37): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.cpp(37): error C2065: “pSrcBuffer”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(37): error C2065: “DWORD”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(37): error C2146: 语法错误: 缺少“)”(在标识符“dwBufferLen”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(37): error C2761: “int CDataOperate::ExplainData_BD(void)”: 不允许成员函数重新声明
+     1>d:\github\bs\bs\dataoperate.cpp(37): error C2059: 语法错误:“)”
+     1>d:\github\bs\bs\dataoperate.cpp(38): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(38): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+     1>d:\github\bs\bs\dataoperate.cpp(216): error C2065: “CUNPACK_TXFS_DS”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(217): error C2065: “CUNPACK_XTZJ_DS”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(218): error C2065: “CUNPACK_XTYD_DS”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(220): error C2143: 语法错误 : 缺少“;”(在“CDataOperate::ExplainData_TCP”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(220): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.cpp(220): error C2086: “int BYTE”: 重定义
+                 d:\github\bs\bs\dataoperate.cpp(37) : 参见“BYTE”的声明
+     1>d:\github\bs\bs\dataoperate.cpp(220): error C2065: “pSrcBuffer”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(220): error C2065: “DWORD”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(220): error C2146: 语法错误: 缺少“)”(在标识符“dwBufferLen”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(220): error C2761: “int CDataOperate::ExplainData_TCP(void)”: 不允许成员函数重新声明
+     1>d:\github\bs\bs\dataoperate.cpp(220): error C2059: 语法错误:“)”
+     1>d:\github\bs\bs\dataoperate.cpp(221): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(221): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+     1>d:\github\bs\bs\dataoperate.cpp(320): error C2143: 语法错误 : 缺少“;”(在“CDataOperate::SendToDS_XTJC”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(320): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.cpp(320): error C2146: 语法错误: 缺少“)”(在标识符“dwIndex”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(320): error C2761: “int CDataOperate::SendToDS_XTJC(void)”: 不允许成员函数重新声明
+     1>d:\github\bs\bs\dataoperate.cpp(320): error C2059: 语法错误:“)”
+     1>d:\github\bs\bs\dataoperate.cpp(321): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(321): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+     1>d:\github\bs\bs\dataoperate.cpp(349): error C2143: 语法错误 : 缺少“;”(在“CDataOperate::SendToDS_DWXX”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(349): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.cpp(349): error C2086: “int DWORD”: 重定义
+                 d:\github\bs\bs\dataoperate.cpp(320) : 参见“DWORD”的声明
+     1>d:\github\bs\bs\dataoperate.cpp(349): error C2065: “tagPosInfo”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(349): error C2065: “stPosInfo”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(349): error C2065: “pSendBuffer”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(350): error C2448: “CDataOperate::SendToDS_DWXX”: 函数样式初始值设定项类似函数定义
+     1>d:\github\bs\bs\dataoperate.cpp(434): error C2143: 语法错误 : 缺少“;”(在“CDataOperate::SendToDS_TXXX”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(434): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.cpp(434): error C2086: “int DWORD”: 重定义
+                 d:\github\bs\bs\dataoperate.cpp(320) : 参见“DWORD”的声明
+     1>d:\github\bs\bs\dataoperate.cpp(434): error C2065: “tagCommInfo”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(434): error C2065: “stCommInfo”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(434): error C2065: “pSendBuffer”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(435): error C2448: “CDataOperate::SendToDS_TXXX”: 函数样式初始值设定项类似函数定义
+     1>d:\github\bs\bs\dataoperate.cpp(496): error C2143: 语法错误 : 缺少“;”(在“CDataOperate::SendToDS_TXHZ”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(496): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.cpp(496): error C2086: “int DWORD”: 重定义
+                 d:\github\bs\bs\dataoperate.cpp(320) : 参见“DWORD”的声明
+     1>d:\github\bs\bs\dataoperate.cpp(496): error C2065: “tagSendBackInfo”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(496): error C2065: “stSendBack”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(496): error C2146: 语法错误: 缺少“)”(在标识符“dwSerialID”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(496): error C2761: “int CDataOperate::SendToDS_TXHZ(void)”: 不允许成员函数重新声明
+     1>d:\github\bs\bs\dataoperate.cpp(496): error C2059: 语法错误:“)”
+     1>d:\github\bs\bs\dataoperate.cpp(497): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(497): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+     1>d:\github\bs\bs\dataoperate.cpp(549): error C2143: 语法错误 : 缺少“;”(在“CDataOperate::SendToDS_ZJXX”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(549): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.cpp(549): error C2086: “int DWORD”: 重定义
+                 d:\github\bs\bs\dataoperate.cpp(320) : 参见“DWORD”的声明
+     1>d:\github\bs\bs\dataoperate.cpp(549): error C2146: 语法错误: 缺少“)”(在标识符“dwMachineID”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(549): error C2761: “int CDataOperate::SendToDS_ZJXX(void)”: 不允许成员函数重新声明
+     1>d:\github\bs\bs\dataoperate.cpp(549): error C2059: 语法错误:“)”
+     1>d:\github\bs\bs\dataoperate.cpp(550): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(550): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+     1>d:\github\bs\bs\dataoperate.cpp(580): error C2143: 语法错误 : 缺少“;”(在“CDataOperate::SendToDS_FKXX”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(580): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.cpp(580): error C2086: “int DWORD”: 重定义
+                 d:\github\bs\bs\dataoperate.cpp(320) : 参见“DWORD”的声明
+     1>d:\github\bs\bs\dataoperate.cpp(580): error C2146: 语法错误: 缺少“)”(在标识符“dwLocalID”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(580): error C2761: “int CDataOperate::SendToDS_FKXX(void)”: 不允许成员函数重新声明
+     1>d:\github\bs\bs\dataoperate.cpp(580): error C2059: 语法错误:“)”
+     1>d:\github\bs\bs\dataoperate.cpp(581): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(581): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+     1>d:\github\bs\bs\dataoperate.cpp(628): error C2143: 语法错误 : 缺少“;”(在“CDataOperate::ExplainData_UDP”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(628): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.cpp(628): error C2086: “int BYTE”: 重定义
+                 d:\github\bs\bs\dataoperate.cpp(37) : 参见“BYTE”的声明
+     1>d:\github\bs\bs\dataoperate.cpp(628): error C2065: “pSrcBuffer”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(628): error C2065: “pDestBuffer”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(628): error C2065: “dwExplainLen”: 未声明的标识符
+     1>d:\github\bs\bs\dataoperate.cpp(629): error C2448: “CDataOperate::ExplainData_UDP”: 函数样式初始值设定项类似函数定义
+     1>d:\github\bs\bs\dataoperate.cpp(841): error C2143: 语法错误 : 缺少“;”(在“CDataOperate::SendToBd_ICJC”的前面)
+     1>d:\github\bs\bs\dataoperate.cpp(841): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
+     1>d:\github\bs\bs\dataoperate.cpp(841): error C2086: “int DWORD”: 重定义
+                 d:\github\bs\bs\dataoperate.cpp(320) : 参见“DWORD”的声明
+     1>d:\github\bs\bs\dataoperate.cpp(841): fatal error C1003: 错误计数超过 100；正在停止编译
+         DataBusiness.cpp
+     1>d:\github\bs\bs\databusiness.cpp(1): warning C4627: “#include "DataBusiness.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\databusiness.cpp(2): warning C4627: “#include "IniOper.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\databusiness.cpp(3): warning C4627: “#include "UnitsManager.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\databusiness.cpp(237): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+         BS.cpp
+         正在生成代码...
+     1>已完成生成项目“D:\GitHub\BS\BS\BS.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:03.89

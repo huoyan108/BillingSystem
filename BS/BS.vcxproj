@@ -80,22 +80,30 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataBusiness.h" />
+    <ClInclude Include="DataOperate.h" />
+    <ClInclude Include="DataTransfer.h" />
     <ClInclude Include="IniOper.h" />
     <ClInclude Include="MsgStructInfo.h" />
+    <ClInclude Include="PareData.h" />
     <ClInclude Include="PGDatabase.h" />
     <ClInclude Include="PGRecordset.h" />
-    <ClInclude Include="proto\smsTx.pb.h" />
+    <ClInclude Include="proto\bcTx.pb.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="tools.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BS.cpp" />
+    <ClCompile Include="DataBusiness.cpp" />
+    <ClCompile Include="DataOperate.cpp" />
+    <ClCompile Include="DataTransfer.cpp" />
     <ClCompile Include="debuginfo.cpp" />
     <ClCompile Include="IniOper.cpp" />
+    <ClCompile Include="PareData.cpp" />
     <ClCompile Include="PGDatabase.cpp" />
     <ClCompile Include="PGRecordset.cpp" />
-    <ClCompile Include="proto\smsTx.pb.cc" />
+    <ClCompile Include="proto\bcTx.pb.cc" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -103,7 +111,7 @@
     <ClCompile Include="tools.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="proto\smsTx.proto" />
+    <None Include="proto\bcTx.proto" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
