@@ -1,11 +1,11 @@
 #include "DataBusiness.h"
 #include "IniOper.h"
-#include "UnitsManager.h"
+#include <cstdlib>
+#include "./proto/bcTx.pb.h"
 float g_fSingleCost = 1.0;
 //互斥锁
 pthread_mutex_t g_busiessData_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t g_FeedData_mutex = PTHREAD_MUTEX_INITIALIZER;
-extern CUnitsManager *g_pComManager;
 void *threadBusiess(void *arg);
 //extern CDataTransfer *g_pDatatransfer = NULL;
 CDataBusiness * g_pDataBusiness = NULL;
@@ -20,9 +20,7 @@ CDataBusiness::CDataBusiness()
 {
 	g_pDataBusiness = this;
 	pthread_create(&m_DataBusinessPt, NULL, threadBusiess, this);
-
-
-
+	
 	CIniOper ini;
 
 	//获取路径
@@ -116,46 +114,21 @@ int CDataBusiness::ProcessBusiess()
 
 	char cSendBuff[1024];
 	bzero(cSendBuff, sizeof(cSendBuff));
-	DWORD nSendLength = 0;
+	//DWORD nSendLength = 0;
 	while (!resdataList.empty())
 	{
 		printf("send Feedback\n");
 
 		tagBsResMsg  tagBsResMsg = resdataList.front();
-
-		//插入新的消费记录
-		if (tagBsResMsg.bIsRecord == true)
-		{
-			struct tm * timeinfo;
-			timeinfo = localtime(&tagBsResMsg.sendtime);
-			printf("The Send date/time is: %s", asctime(timeinfo));
-			char sSql[256];
-			bzero(sSql, sizeof(sSql));
-
-			sprintf(sSql, "insert into qhcharging(qtscharid,qtsentid,qtscardnumber,qtsproductid,qtdamount,qtnchargtime) values (bss_bdfs_id_seq.nextval,%d,%d,'%s',%f,to_date('%s','YYYY-MM-DD H24:MI:SS'))",
-				tagBsResMsg.cQtsentid,
-				tagBsResMsg.nQtscardnumber,
-				tagBsResMsg.cQtsproductid,
-				tagBsResMsg.fQtdamount,
-				asctime(timeinfo));
-			m_db.Exec(sSql);
-
-			//UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值
-			sprintf(sSql, "update bss_bdfs set send_time=to_date('%s','YYYY-MM-DD H24:MI:SS'),send_times=%d,status=%d",
-				asctime(timeinfo),
-				tagBsResMsg.sendtimes,
-				tagBsResMsg.FeedResult);
-			m_db.Exec(sSql);
-		}
-		
-
-		//打包待加
-		parseData.SendToDS_FKXX(tagBsResMsg.dwSerialID,
-			tagBsResMsg.FeedResult,
-			cSendBuff, 
-			nSendLength);
+		//打包
+		BsfkMsg bsfkMsg;
+		bsfkMsg.set_nauthenticationid(tagBsResMsg.nAuthenticationId);
+		bsfkMsg.set_sqtsentid(tagBsResMsg.sQtsentid);
+		bsfkMsg.set_nres(tagBsResMsg.nRes);
+		string sBuff = "";
+		bsfkMsg.SerializeToString(&sBuff);
 		//发送
-		m_treansfer.SendData(cSendBuff, nSendLength);
+		m_treansfer.SendData((char*)sBuff.c_str(), sBuff.length());
 	}
 	return TRUE;
 }
@@ -163,145 +136,177 @@ int CDataBusiness::ProcessBusiess()
 // 设置业务数据,进行计费
 int CDataBusiness::SetBusiessData(tagBstxMsg *pCommReq)
 {
-	//获取当前时间
-	time_t currtime;
-	struct tm * timeinfo;
 
-	time(&currtime);
-	timeinfo = localtime(&currtime);
-	printf("The current date/time is: %s", asctime(timeinfo));
-
-	char cCurrtime[20];
-	bzero(cCurrtime, sizeof(cCurrtime));
-	strcat(cCurrtime, asctime(timeinfo));
-
-	//返回结果
-	tagBsResMsg tagResInfo;
-	tagResInfo.dwSerialID = pCommReq->dwSerialID;
-	tagResInfo.bIsRecord = false;
-	tagResInfo.nQtscardnumber = pCommReq->nQtscardnumber;
-
-	char sSql[256];
-	bzero(sSql, sizeof(sSql));
-	PGRecordset* res = NULL;
-
-
-	//查询企业ID,总金额
-	sprintf(sSql, "select qtsentId,qtdamount from qhenterprise where  qtsentId in (select qtsentId from qhcardinfo where qtscardnumber=%d)", pCommReq->nQtscardnumber);
-	res = m_db.Query(sSql);
-
-	float fQtdamount;
-	char cQtsentId[20];
-	bzero(cQtsentId, sizeof(cQtsentId));
-
-	char cQtdamount[20];
-	bzero(cQtdamount, sizeof(cQtdamount));
-
-	if (res != NULL)
+	if (pCommReq->nType == TX_FWJQ)
 	{
-		printf("qtsentId,qtdamount has %d rows", res->GetTupleCount());
+		//返回结果
+		tagBsResMsg tagResInfo;
+		tagResInfo.nAuthenticationId = pCommReq->nAuthenticationId;
+		tagResInfo.sQtsentid = pCommReq->sQtsentid;
 
-		strcat(cQtsentId, res->GetValue(0, 0));
-		strcat(cQtdamount, res->GetValue(0, 1));
+		char sSql[256];
+		bzero(sSql, sizeof(sSql));
+		PGRecordset* res = NULL;
+		
+		//查询企业ID,总金额
+		sprintf(sSql, "select qtsentId,qtdamount from qhenterprise where  qtsentId = '%s'", pCommReq->sQtsentid.c_str());
+		res = m_db.Query(sSql);
 
-		fQtdamount = atof(cQtdamount);
+		float fQtdamount = 0.0;
+		char cQtsentId[20];
+		bzero(cQtsentId, sizeof(cQtsentId));
 
-		printf("sQtsentId: %s\n", cQtsentId);
-		printf("sQtdamount: %s\n", cQtdamount);
+		char cQtdamount[20];
+		bzero(cQtdamount, sizeof(cQtdamount));
 
-		res->Destroy();
-
-		strcat(tagResInfo.cQtsentid, cQtsentId);
-
-	}
-	else
-	{
-		printf("no register.\n");
-		tagResInfo.nRes = NOREGISTER;
-		SetFeedResData(tagResInfo);
-		return -1;
-	}
-
-	//产品ID,开始时间、结束时间、条数(目前不用)
-	sprintf(sSql, "select qtsproductid,to_char(qtnbegintime,'YYYY-MM-DD HH24:MI:SS'),to_char(qtnendtime,'YYYY-MM-DD HH24:MI:SS') from qhentproductmapping,qhproductinfo where qhentproductmapping.qtsproductid=qhproductinfo.qtsproductid and qhproductinfo.qtdcategory=%d and qhentproductmapping.qtsentid = '%s'",
-		pCommReq->nCategory, cQtsentId);
-	res = m_db.Query(sSql);
-
-	char cQtsproductid[20];
-	bzero(cQtsproductid, sizeof(cQtsproductid));
-
-	char cQtnbegintime[20];
-	bzero(cQtnbegintime, sizeof(cQtnbegintime));
-
-	char cQtnendtime[20];
-	bzero(cQtnendtime, sizeof(cQtnendtime));
-
-	if (res != NULL)
-	{
-		printf("qtnbegintime,qtnendtime,qtdmessagecount has %d rows", res->GetTupleCount());
-
-		strcat(cQtsproductid, res->GetValue(0, 0));
-		strcat(cQtnbegintime, res->GetValue(0, 1));
-		strcat(cQtnendtime, res->GetValue(0, 2));
-
-	
-		printf("qtnbegintime: %s\n", cQtsproductid);
-		printf("sQtnbegintime: %s\n", cQtnbegintime);
-		printf("sQtnendtime: %s\n", cQtnendtime);
-
-		res->Destroy();
-
-		if (cQtnendtime==NULL)
+		if (res != NULL)
 		{
-			//没有时间限制就是逐条,比较余额
-			if (fQtdamount > g_fSingleCost)
-			{
-				//余额充足
-				printf("ok.\n");
-				tagResInfo.nRes = PERMISSION;
-				strcat(tagResInfo.cQtsproductid, cQtsproductid);
-				tagResInfo.fQtdamount = fQtdamount;
-				tagResInfo.bIsRecord = true;
+			printf("qtsentId,qtdamount has %d rows", res->GetTupleCount());
 
-				SetFeedResData(tagResInfo);
-				return 0;
+			strcat(cQtsentId, res->GetValue(0, 0));
+			strcat(cQtdamount, res->GetValue(0, 1));
+
+			fQtdamount = atof(cQtdamount);
+
+			printf("sQtsentId: %s\n", cQtsentId);
+			printf("sQtdamount: %s\n", cQtdamount);
+
+			res->Destroy();
+		}
+		else
+		{
+			printf("no register.\n");
+			tagResInfo.nRes = NOREGISTER;
+			SetFeedResData(tagResInfo);
+			return -1;
+		}
+
+		//产品ID,开始时间、结束时间)
+		sprintf(sSql, "select qtsproductid,to_char(qtnbegintime,'YYYY-MM-DD HH24:MI:SS'),to_char(qtnendtime,'YYYY-MM-DD HH24:MI:SS') from qhentproductmapping,qhproductinfo where qhentproductmapping.qtsproductid=qhproductinfo.qtsproductid and qhproductinfo.qtdcategory=%d and qhentproductmapping.qtsentid = '%s'",
+			pCommReq->nCategory, cQtsentId);
+		res = m_db.Query(sSql);
+
+		char cQtsproductid[20];
+		bzero(cQtsproductid, sizeof(cQtsproductid));
+
+		char cQtnbegintime[20];
+		bzero(cQtnbegintime, sizeof(cQtnbegintime));
+
+		char cQtnendtime[20];
+		bzero(cQtnendtime, sizeof(cQtnendtime));
+
+		if (res != NULL)
+		{
+			printf("qtnbegintime,qtnendtime,qtdmessagecount has %d rows", res->GetTupleCount());
+
+			strcat(cQtsproductid, res->GetValue(0, 0));
+			strcat(cQtnbegintime, res->GetValue(0, 1));
+			strcat(cQtnendtime, res->GetValue(0, 2));
+
+
+			printf("qtnbegintime: %s\n", cQtsproductid);
+			printf("sQtnbegintime: %s\n", cQtnbegintime);
+			printf("sQtnendtime: %s\n", cQtnendtime);
+
+			res->Destroy();
+
+			if (cQtnendtime == NULL)
+			{
+				//没有时间限制就是逐条,比较余额
+				if (fQtdamount > g_fSingleCost)
+				{
+					//余额充足
+					printf("ok.\n");
+					tagResInfo.nRes = PERMISSION;
+					//strcat(tagResInfo.cQtsproductid, cQtsproductid);
+					//tagResInfo.fQtdamount = fQtdamount;
+					//tagResInfo.bIsRecord = true;
+
+					SetFeedResData(tagResInfo);
+					return 0;
+				}
+				else
+				{
+					//余额不足
+					printf("no money.\n");
+					tagResInfo.nRes = NOMONEY;
+					SetFeedResData(tagResInfo);
+					return -1;
+				}
 			}
 			else
 			{
-				//余额不足
-				printf("no money.\n");
-				tagResInfo.nRes = NOMONEY;
-				SetFeedResData(tagResInfo);
-				return -1;
+				//获取当前时间
+				time_t currtime;
+				struct tm * timeinfo;
+
+				time(&currtime);
+				timeinfo = localtime(&currtime);
+				printf("The current date/time is: %s", asctime(timeinfo));
+
+				char cCurrtime[20];
+				bzero(cCurrtime, sizeof(cCurrtime));
+				strcat(cCurrtime, asctime(timeinfo));
+
+				//包月或者包年，判断是否在时间范围内
+				if (strcmp(cQtnbegintime, cCurrtime)<0 && strcmp(cQtnendtime, cCurrtime)>0)
+				{
+					printf("ok.\n");
+					tagResInfo.nRes = PERMISSION;
+					SetFeedResData(tagResInfo);
+				}
+				else
+				{
+					//到达时限
+					printf("teach date.\n");
+					tagResInfo.nRes = TEACHDATE;
+					SetFeedResData(tagResInfo);
+					return -1;
+				}
 			}
 		}
 		else
 		{
-			//包月或者包年，判断是否在时间范围内
-			if (strcmp(cQtnbegintime, cCurrtime)<0 && strcmp(cQtnendtime,cCurrtime)>0)
-			{
-				printf("ok.\n");
-				tagResInfo.nRes = PERMISSION;
-				SetFeedResData(tagResInfo);
-			}
-			else
-			{
-				//到达时限
-				printf("teach date.\n");
-				tagResInfo.nRes = TEACHDATE;
-				SetFeedResData(tagResInfo);
-				return -1;
-			}
+			//没有服务产品
+			printf("no category.\n");
+			tagResInfo.nRes = NOCATEGORY;
+			SetFeedResData(tagResInfo);
+			return -1;
 		}
+	}
+	else if (pCommReq->nType == TX_KFQQ)
+	{ 
+		//插入新的消费记录
+		//获取当前时间
+		time_t currtime;
+		struct tm * timeinfo;
+
+		time(&currtime);
+		timeinfo = localtime(&currtime);
+		printf("The current date/time is: %s", asctime(timeinfo));
+
+		char cCurrtime[20];
+		bzero(cCurrtime, sizeof(cCurrtime));
+		strcat(cCurrtime, asctime(timeinfo));
+
+		char sSql[256];
+		bzero(sSql, sizeof(sSql));
+
+		sprintf(sSql, "insert into qhcharging(qtscharid,qtsentid,qtscardnumber,qtsproductid,qtdamount,qtnchargtime) values (bss_bdfs_id_seq.nextval,'%s',%ld,%d,%f,to_date('%s','YYYY-MM-DD H24:MI:SS'))",
+			(char *)pCommReq->sQtsentid.c_str(),
+			pCommReq->nRecvId,
+			pCommReq->nCategory,
+			g_fSingleCost,
+			cCurrtime);
+			m_db.Exec(sSql);
+			return 0;
+
 	}
 	else
 	{
-		//没有服务产品
-		printf("no category.\n");
-		tagResInfo.nRes = NOCATEGORY;
-		SetFeedResData(tagResInfo);
 		return -1;
 	}
+	
 
 	return 0;
 }

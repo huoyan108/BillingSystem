@@ -9,10 +9,10 @@ SET(CMAKE_BUILD_TYPE "Debug")
 SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
 SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
-PROJECT (SMS)
+PROJECT (BS)
 
 #build files
-SET(SRC_LIST main.cpp debuginfo.cpp tools.cpp IniOper.cpp ComDev.cpp ComUnit.cpp PareData.cpp UnitsManager.cpp AlarmClock.cpp DataTransfer.cpp DataBusiness.cpp PGDatabase.cpp PGRecordset.cpp ./proto/smsTx.pb.cc)
+SET(SRC_LIST main.cpp debuginfo.cpp tools.cpp IniOper.cpp  DataTransfer.cpp DataBusiness.cpp PGDatabase.cpp PGRecordset.cpp ./proto/bcTx.pb.cc)
 
 #zhi ding yuan wen jian mu lu 
 #aux_source_directory(. SRC_LIST)
@@ -23,24 +23,24 @@ INCLUDE_DIRECTORIES(/usr/local/include/)
 LINK_DIRECTORIES(/usr/local)
 
 #mu biao zhi xing lie biao 
-ADD_EXECUTABLE(sms ${SRC_LIST})
+ADD_EXECUTABLE(bs ${SRC_LIST})
 
 #lian jie dong tai ku can shu 
 #TARGET_LINK_LIBRARIES(hightcp lacewing)
 
 #thread
-TARGET_LINK_LIBRARIES(sms pthread)
+TARGET_LINK_LIBRARIES(bs pthread)
 
 #lua
-TARGET_LINK_LIBRARIES(sms m)
-TARGET_LINK_LIBRARIES(sms lua)
-TARGET_LINK_LIBRARIES(sms dl)
+TARGET_LINK_LIBRARIES(bs m)
+TARGET_LINK_LIBRARIES(bs lua)
+TARGET_LINK_LIBRARIES(bs dl)
 
 #zmq
-TARGET_LINK_LIBRARIES(sms zmq)
+TARGET_LINK_LIBRARIES(bs zmq)
 
 #protobuf
-TARGET_LINK_LIBRARIES(sms protobuf)
+TARGET_LINK_LIBRARIES(bs protobuf)
 
 #postgresql
-TARGET_LINK_LIBRARIES(sms pq)
+TARGET_LINK_LIBRARIES(bs pq)

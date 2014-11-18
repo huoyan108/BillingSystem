@@ -23,6 +23,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
@@ -32,9 +33,244 @@ void protobuf_AssignDesc_bcTx_2eproto();
 void protobuf_ShutdownFile_bcTx_2eproto();
 
 class BsTxMsg;
+class BsTxMsg_FwjqMsg;
+class BsTxMsg_KfqqMsg;
 class BsfkMsg;
 
+enum BsTxMsg_recvtype {
+  BsTxMsg_recvtype_FWJQ = 1,
+  BsTxMsg_recvtype_KFQQ = 2
+};
+bool BsTxMsg_recvtype_IsValid(int value);
+const BsTxMsg_recvtype BsTxMsg_recvtype_recvtype_MIN = BsTxMsg_recvtype_FWJQ;
+const BsTxMsg_recvtype BsTxMsg_recvtype_recvtype_MAX = BsTxMsg_recvtype_KFQQ;
+const int BsTxMsg_recvtype_recvtype_ARRAYSIZE = BsTxMsg_recvtype_recvtype_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* BsTxMsg_recvtype_descriptor();
+inline const ::std::string& BsTxMsg_recvtype_Name(BsTxMsg_recvtype value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    BsTxMsg_recvtype_descriptor(), value);
+}
+inline bool BsTxMsg_recvtype_Parse(
+    const ::std::string& name, BsTxMsg_recvtype* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<BsTxMsg_recvtype>(
+    BsTxMsg_recvtype_descriptor(), name, value);
+}
 // ===================================================================
+
+class BsTxMsg_FwjqMsg : public ::google::protobuf::Message {
+ public:
+  BsTxMsg_FwjqMsg();
+  virtual ~BsTxMsg_FwjqMsg();
+
+  BsTxMsg_FwjqMsg(const BsTxMsg_FwjqMsg& from);
+
+  inline BsTxMsg_FwjqMsg& operator=(const BsTxMsg_FwjqMsg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BsTxMsg_FwjqMsg& default_instance();
+
+  void Swap(BsTxMsg_FwjqMsg* other);
+
+  // implements Message ----------------------------------------------
+
+  BsTxMsg_FwjqMsg* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BsTxMsg_FwjqMsg& from);
+  void MergeFrom(const BsTxMsg_FwjqMsg& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 nAuthenticationId = 1;
+  inline bool has_nauthenticationid() const;
+  inline void clear_nauthenticationid();
+  static const int kNAuthenticationIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 nauthenticationid() const;
+  inline void set_nauthenticationid(::google::protobuf::uint32 value);
+
+  // required string sQtsentid = 2;
+  inline bool has_sqtsentid() const;
+  inline void clear_sqtsentid();
+  static const int kSQtsentidFieldNumber = 2;
+  inline const ::std::string& sqtsentid() const;
+  inline void set_sqtsentid(const ::std::string& value);
+  inline void set_sqtsentid(const char* value);
+  inline void set_sqtsentid(const char* value, size_t size);
+  inline ::std::string* mutable_sqtsentid();
+  inline ::std::string* release_sqtsentid();
+  inline void set_allocated_sqtsentid(::std::string* sqtsentid);
+
+  // required uint32 nCategory = 3;
+  inline bool has_ncategory() const;
+  inline void clear_ncategory();
+  static const int kNCategoryFieldNumber = 3;
+  inline ::google::protobuf::uint32 ncategory() const;
+  inline void set_ncategory(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:BsTxMsg.FwjqMsg)
+ private:
+  inline void set_has_nauthenticationid();
+  inline void clear_has_nauthenticationid();
+  inline void set_has_sqtsentid();
+  inline void clear_has_sqtsentid();
+  inline void set_has_ncategory();
+  inline void clear_has_ncategory();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* sqtsentid_;
+  ::google::protobuf::uint32 nauthenticationid_;
+  ::google::protobuf::uint32 ncategory_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_bcTx_2eproto();
+  friend void protobuf_AssignDesc_bcTx_2eproto();
+  friend void protobuf_ShutdownFile_bcTx_2eproto();
+
+  void InitAsDefaultInstance();
+  static BsTxMsg_FwjqMsg* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BsTxMsg_KfqqMsg : public ::google::protobuf::Message {
+ public:
+  BsTxMsg_KfqqMsg();
+  virtual ~BsTxMsg_KfqqMsg();
+
+  BsTxMsg_KfqqMsg(const BsTxMsg_KfqqMsg& from);
+
+  inline BsTxMsg_KfqqMsg& operator=(const BsTxMsg_KfqqMsg& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BsTxMsg_KfqqMsg& default_instance();
+
+  void Swap(BsTxMsg_KfqqMsg* other);
+
+  // implements Message ----------------------------------------------
+
+  BsTxMsg_KfqqMsg* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BsTxMsg_KfqqMsg& from);
+  void MergeFrom(const BsTxMsg_KfqqMsg& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string sQtsentid = 1;
+  inline bool has_sqtsentid() const;
+  inline void clear_sqtsentid();
+  static const int kSQtsentidFieldNumber = 1;
+  inline const ::std::string& sqtsentid() const;
+  inline void set_sqtsentid(const ::std::string& value);
+  inline void set_sqtsentid(const char* value);
+  inline void set_sqtsentid(const char* value, size_t size);
+  inline ::std::string* mutable_sqtsentid();
+  inline ::std::string* release_sqtsentid();
+  inline void set_allocated_sqtsentid(::std::string* sqtsentid);
+
+  // required uint32 nCategory = 2;
+  inline bool has_ncategory() const;
+  inline void clear_ncategory();
+  static const int kNCategoryFieldNumber = 2;
+  inline ::google::protobuf::uint32 ncategory() const;
+  inline void set_ncategory(::google::protobuf::uint32 value);
+
+  // required uint32 nRecvid = 3;
+  inline bool has_nrecvid() const;
+  inline void clear_nrecvid();
+  static const int kNRecvidFieldNumber = 3;
+  inline ::google::protobuf::uint32 nrecvid() const;
+  inline void set_nrecvid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:BsTxMsg.KfqqMsg)
+ private:
+  inline void set_has_sqtsentid();
+  inline void clear_has_sqtsentid();
+  inline void set_has_ncategory();
+  inline void clear_has_ncategory();
+  inline void set_has_nrecvid();
+  inline void clear_has_nrecvid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* sqtsentid_;
+  ::google::protobuf::uint32 ncategory_;
+  ::google::protobuf::uint32 nrecvid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_bcTx_2eproto();
+  friend void protobuf_AssignDesc_bcTx_2eproto();
+  friend void protobuf_ShutdownFile_bcTx_2eproto();
+
+  void InitAsDefaultInstance();
+  static BsTxMsg_KfqqMsg* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class BsTxMsg : public ::google::protobuf::Message {
  public:
@@ -88,43 +324,74 @@ class BsTxMsg : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
+  typedef BsTxMsg_FwjqMsg FwjqMsg;
+  typedef BsTxMsg_KfqqMsg KfqqMsg;
+
+  typedef BsTxMsg_recvtype recvtype;
+  static const recvtype FWJQ = BsTxMsg_recvtype_FWJQ;
+  static const recvtype KFQQ = BsTxMsg_recvtype_KFQQ;
+  static inline bool recvtype_IsValid(int value) {
+    return BsTxMsg_recvtype_IsValid(value);
+  }
+  static const recvtype recvtype_MIN =
+    BsTxMsg_recvtype_recvtype_MIN;
+  static const recvtype recvtype_MAX =
+    BsTxMsg_recvtype_recvtype_MAX;
+  static const int recvtype_ARRAYSIZE =
+    BsTxMsg_recvtype_recvtype_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  recvtype_descriptor() {
+    return BsTxMsg_recvtype_descriptor();
+  }
+  static inline const ::std::string& recvtype_Name(recvtype value) {
+    return BsTxMsg_recvtype_Name(value);
+  }
+  static inline bool recvtype_Parse(const ::std::string& name,
+      recvtype* value) {
+    return BsTxMsg_recvtype_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
-  // required uint32 nSerialId = 1;
-  inline bool has_nserialid() const;
-  inline void clear_nserialid();
-  static const int kNSerialIdFieldNumber = 1;
-  inline ::google::protobuf::uint32 nserialid() const;
-  inline void set_nserialid(::google::protobuf::uint32 value);
+  // required .BsTxMsg.recvtype nRecvType = 1 [default = FWJQ];
+  inline bool has_nrecvtype() const;
+  inline void clear_nrecvtype();
+  static const int kNRecvTypeFieldNumber = 1;
+  inline ::BsTxMsg_recvtype nrecvtype() const;
+  inline void set_nrecvtype(::BsTxMsg_recvtype value);
 
-  // required uint32 nQtscardnumber = 2;
-  inline bool has_nqtscardnumber() const;
-  inline void clear_nqtscardnumber();
-  static const int kNQtscardnumberFieldNumber = 2;
-  inline ::google::protobuf::uint32 nqtscardnumber() const;
-  inline void set_nqtscardnumber(::google::protobuf::uint32 value);
+  // optional .BsTxMsg.FwjqMsg fwjqMsg = 2;
+  inline bool has_fwjqmsg() const;
+  inline void clear_fwjqmsg();
+  static const int kFwjqMsgFieldNumber = 2;
+  inline const ::BsTxMsg_FwjqMsg& fwjqmsg() const;
+  inline ::BsTxMsg_FwjqMsg* mutable_fwjqmsg();
+  inline ::BsTxMsg_FwjqMsg* release_fwjqmsg();
+  inline void set_allocated_fwjqmsg(::BsTxMsg_FwjqMsg* fwjqmsg);
 
-  // required uint32 nQtdcategory = 3;
-  inline bool has_nqtdcategory() const;
-  inline void clear_nqtdcategory();
-  static const int kNQtdcategoryFieldNumber = 3;
-  inline ::google::protobuf::uint32 nqtdcategory() const;
-  inline void set_nqtdcategory(::google::protobuf::uint32 value);
+  // optional .BsTxMsg.KfqqMsg kfqqMsg = 3;
+  inline bool has_kfqqmsg() const;
+  inline void clear_kfqqmsg();
+  static const int kKfqqMsgFieldNumber = 3;
+  inline const ::BsTxMsg_KfqqMsg& kfqqmsg() const;
+  inline ::BsTxMsg_KfqqMsg* mutable_kfqqmsg();
+  inline ::BsTxMsg_KfqqMsg* release_kfqqmsg();
+  inline void set_allocated_kfqqmsg(::BsTxMsg_KfqqMsg* kfqqmsg);
 
   // @@protoc_insertion_point(class_scope:BsTxMsg)
  private:
-  inline void set_has_nserialid();
-  inline void clear_has_nserialid();
-  inline void set_has_nqtscardnumber();
-  inline void clear_has_nqtscardnumber();
-  inline void set_has_nqtdcategory();
-  inline void clear_has_nqtdcategory();
+  inline void set_has_nrecvtype();
+  inline void clear_has_nrecvtype();
+  inline void set_has_fwjqmsg();
+  inline void clear_has_fwjqmsg();
+  inline void set_has_kfqqmsg();
+  inline void clear_has_kfqqmsg();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::uint32 nserialid_;
-  ::google::protobuf::uint32 nqtscardnumber_;
-  ::google::protobuf::uint32 nqtdcategory_;
+  ::BsTxMsg_FwjqMsg* fwjqmsg_;
+  ::BsTxMsg_KfqqMsg* kfqqmsg_;
+  int nrecvtype_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -192,34 +459,49 @@ class BsfkMsg : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required uint32 nSerialId = 1;
-  inline bool has_nserialid() const;
-  inline void clear_nserialid();
-  static const int kNSerialIdFieldNumber = 1;
-  inline ::google::protobuf::uint32 nserialid() const;
-  inline void set_nserialid(::google::protobuf::uint32 value);
+  // required uint32 nAuthenticationId = 1;
+  inline bool has_nauthenticationid() const;
+  inline void clear_nauthenticationid();
+  static const int kNAuthenticationIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 nauthenticationid() const;
+  inline void set_nauthenticationid(::google::protobuf::uint32 value);
 
-  // required uint32 nRes = 2;
+  // required string sQtsentid = 2;
+  inline bool has_sqtsentid() const;
+  inline void clear_sqtsentid();
+  static const int kSQtsentidFieldNumber = 2;
+  inline const ::std::string& sqtsentid() const;
+  inline void set_sqtsentid(const ::std::string& value);
+  inline void set_sqtsentid(const char* value);
+  inline void set_sqtsentid(const char* value, size_t size);
+  inline ::std::string* mutable_sqtsentid();
+  inline ::std::string* release_sqtsentid();
+  inline void set_allocated_sqtsentid(::std::string* sqtsentid);
+
+  // required uint32 nRes = 3;
   inline bool has_nres() const;
   inline void clear_nres();
-  static const int kNResFieldNumber = 2;
+  static const int kNResFieldNumber = 3;
   inline ::google::protobuf::uint32 nres() const;
   inline void set_nres(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:BsfkMsg)
  private:
-  inline void set_has_nserialid();
-  inline void clear_has_nserialid();
+  inline void set_has_nauthenticationid();
+  inline void clear_has_nauthenticationid();
+  inline void set_has_sqtsentid();
+  inline void clear_has_sqtsentid();
   inline void set_has_nres();
   inline void clear_has_nres();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::uint32 nserialid_;
+  ::std::string* sqtsentid_;
+  ::google::protobuf::uint32 nauthenticationid_;
   ::google::protobuf::uint32 nres_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_bcTx_2eproto();
   friend void protobuf_AssignDesc_bcTx_2eproto();
@@ -233,109 +515,448 @@ class BsfkMsg : public ::google::protobuf::Message {
 
 // ===================================================================
 
-// BsTxMsg
+// BsTxMsg_FwjqMsg
 
-// required uint32 nSerialId = 1;
-inline bool BsTxMsg::has_nserialid() const {
+// required uint32 nAuthenticationId = 1;
+inline bool BsTxMsg_FwjqMsg::has_nauthenticationid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void BsTxMsg::set_has_nserialid() {
+inline void BsTxMsg_FwjqMsg::set_has_nauthenticationid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void BsTxMsg::clear_has_nserialid() {
+inline void BsTxMsg_FwjqMsg::clear_has_nauthenticationid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void BsTxMsg::clear_nserialid() {
-  nserialid_ = 0u;
-  clear_has_nserialid();
+inline void BsTxMsg_FwjqMsg::clear_nauthenticationid() {
+  nauthenticationid_ = 0u;
+  clear_has_nauthenticationid();
 }
-inline ::google::protobuf::uint32 BsTxMsg::nserialid() const {
-  return nserialid_;
+inline ::google::protobuf::uint32 BsTxMsg_FwjqMsg::nauthenticationid() const {
+  return nauthenticationid_;
 }
-inline void BsTxMsg::set_nserialid(::google::protobuf::uint32 value) {
-  set_has_nserialid();
-  nserialid_ = value;
+inline void BsTxMsg_FwjqMsg::set_nauthenticationid(::google::protobuf::uint32 value) {
+  set_has_nauthenticationid();
+  nauthenticationid_ = value;
 }
 
-// required uint32 nQtscardnumber = 2;
-inline bool BsTxMsg::has_nqtscardnumber() const {
+// required string sQtsentid = 2;
+inline bool BsTxMsg_FwjqMsg::has_sqtsentid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void BsTxMsg::set_has_nqtscardnumber() {
+inline void BsTxMsg_FwjqMsg::set_has_sqtsentid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void BsTxMsg::clear_has_nqtscardnumber() {
+inline void BsTxMsg_FwjqMsg::clear_has_sqtsentid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void BsTxMsg::clear_nqtscardnumber() {
-  nqtscardnumber_ = 0u;
-  clear_has_nqtscardnumber();
+inline void BsTxMsg_FwjqMsg::clear_sqtsentid() {
+  if (sqtsentid_ != &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_->clear();
+  }
+  clear_has_sqtsentid();
 }
-inline ::google::protobuf::uint32 BsTxMsg::nqtscardnumber() const {
-  return nqtscardnumber_;
+inline const ::std::string& BsTxMsg_FwjqMsg::sqtsentid() const {
+  return *sqtsentid_;
 }
-inline void BsTxMsg::set_nqtscardnumber(::google::protobuf::uint32 value) {
-  set_has_nqtscardnumber();
-  nqtscardnumber_ = value;
+inline void BsTxMsg_FwjqMsg::set_sqtsentid(const ::std::string& value) {
+  set_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_ = new ::std::string;
+  }
+  sqtsentid_->assign(value);
+}
+inline void BsTxMsg_FwjqMsg::set_sqtsentid(const char* value) {
+  set_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_ = new ::std::string;
+  }
+  sqtsentid_->assign(value);
+}
+inline void BsTxMsg_FwjqMsg::set_sqtsentid(const char* value, size_t size) {
+  set_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_ = new ::std::string;
+  }
+  sqtsentid_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BsTxMsg_FwjqMsg::mutable_sqtsentid() {
+  set_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_ = new ::std::string;
+  }
+  return sqtsentid_;
+}
+inline ::std::string* BsTxMsg_FwjqMsg::release_sqtsentid() {
+  clear_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = sqtsentid_;
+    sqtsentid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void BsTxMsg_FwjqMsg::set_allocated_sqtsentid(::std::string* sqtsentid) {
+  if (sqtsentid_ != &::google::protobuf::internal::kEmptyString) {
+    delete sqtsentid_;
+  }
+  if (sqtsentid) {
+    set_has_sqtsentid();
+    sqtsentid_ = sqtsentid;
+  } else {
+    clear_has_sqtsentid();
+    sqtsentid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
-// required uint32 nQtdcategory = 3;
-inline bool BsTxMsg::has_nqtdcategory() const {
+// required uint32 nCategory = 3;
+inline bool BsTxMsg_FwjqMsg::has_ncategory() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void BsTxMsg::set_has_nqtdcategory() {
+inline void BsTxMsg_FwjqMsg::set_has_ncategory() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void BsTxMsg::clear_has_nqtdcategory() {
+inline void BsTxMsg_FwjqMsg::clear_has_ncategory() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void BsTxMsg::clear_nqtdcategory() {
-  nqtdcategory_ = 0u;
-  clear_has_nqtdcategory();
+inline void BsTxMsg_FwjqMsg::clear_ncategory() {
+  ncategory_ = 0u;
+  clear_has_ncategory();
 }
-inline ::google::protobuf::uint32 BsTxMsg::nqtdcategory() const {
-  return nqtdcategory_;
+inline ::google::protobuf::uint32 BsTxMsg_FwjqMsg::ncategory() const {
+  return ncategory_;
 }
-inline void BsTxMsg::set_nqtdcategory(::google::protobuf::uint32 value) {
-  set_has_nqtdcategory();
-  nqtdcategory_ = value;
+inline void BsTxMsg_FwjqMsg::set_ncategory(::google::protobuf::uint32 value) {
+  set_has_ncategory();
+  ncategory_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// BsTxMsg_KfqqMsg
+
+// required string sQtsentid = 1;
+inline bool BsTxMsg_KfqqMsg::has_sqtsentid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BsTxMsg_KfqqMsg::set_has_sqtsentid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BsTxMsg_KfqqMsg::clear_has_sqtsentid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BsTxMsg_KfqqMsg::clear_sqtsentid() {
+  if (sqtsentid_ != &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_->clear();
+  }
+  clear_has_sqtsentid();
+}
+inline const ::std::string& BsTxMsg_KfqqMsg::sqtsentid() const {
+  return *sqtsentid_;
+}
+inline void BsTxMsg_KfqqMsg::set_sqtsentid(const ::std::string& value) {
+  set_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_ = new ::std::string;
+  }
+  sqtsentid_->assign(value);
+}
+inline void BsTxMsg_KfqqMsg::set_sqtsentid(const char* value) {
+  set_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_ = new ::std::string;
+  }
+  sqtsentid_->assign(value);
+}
+inline void BsTxMsg_KfqqMsg::set_sqtsentid(const char* value, size_t size) {
+  set_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_ = new ::std::string;
+  }
+  sqtsentid_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BsTxMsg_KfqqMsg::mutable_sqtsentid() {
+  set_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_ = new ::std::string;
+  }
+  return sqtsentid_;
+}
+inline ::std::string* BsTxMsg_KfqqMsg::release_sqtsentid() {
+  clear_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = sqtsentid_;
+    sqtsentid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void BsTxMsg_KfqqMsg::set_allocated_sqtsentid(::std::string* sqtsentid) {
+  if (sqtsentid_ != &::google::protobuf::internal::kEmptyString) {
+    delete sqtsentid_;
+  }
+  if (sqtsentid) {
+    set_has_sqtsentid();
+    sqtsentid_ = sqtsentid;
+  } else {
+    clear_has_sqtsentid();
+    sqtsentid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required uint32 nCategory = 2;
+inline bool BsTxMsg_KfqqMsg::has_ncategory() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BsTxMsg_KfqqMsg::set_has_ncategory() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BsTxMsg_KfqqMsg::clear_has_ncategory() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BsTxMsg_KfqqMsg::clear_ncategory() {
+  ncategory_ = 0u;
+  clear_has_ncategory();
+}
+inline ::google::protobuf::uint32 BsTxMsg_KfqqMsg::ncategory() const {
+  return ncategory_;
+}
+inline void BsTxMsg_KfqqMsg::set_ncategory(::google::protobuf::uint32 value) {
+  set_has_ncategory();
+  ncategory_ = value;
+}
+
+// required uint32 nRecvid = 3;
+inline bool BsTxMsg_KfqqMsg::has_nrecvid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void BsTxMsg_KfqqMsg::set_has_nrecvid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void BsTxMsg_KfqqMsg::clear_has_nrecvid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void BsTxMsg_KfqqMsg::clear_nrecvid() {
+  nrecvid_ = 0u;
+  clear_has_nrecvid();
+}
+inline ::google::protobuf::uint32 BsTxMsg_KfqqMsg::nrecvid() const {
+  return nrecvid_;
+}
+inline void BsTxMsg_KfqqMsg::set_nrecvid(::google::protobuf::uint32 value) {
+  set_has_nrecvid();
+  nrecvid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// BsTxMsg
+
+// required .BsTxMsg.recvtype nRecvType = 1 [default = FWJQ];
+inline bool BsTxMsg::has_nrecvtype() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BsTxMsg::set_has_nrecvtype() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BsTxMsg::clear_has_nrecvtype() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BsTxMsg::clear_nrecvtype() {
+  nrecvtype_ = 1;
+  clear_has_nrecvtype();
+}
+inline ::BsTxMsg_recvtype BsTxMsg::nrecvtype() const {
+  return static_cast< ::BsTxMsg_recvtype >(nrecvtype_);
+}
+inline void BsTxMsg::set_nrecvtype(::BsTxMsg_recvtype value) {
+  assert(::BsTxMsg_recvtype_IsValid(value));
+  set_has_nrecvtype();
+  nrecvtype_ = value;
+}
+
+// optional .BsTxMsg.FwjqMsg fwjqMsg = 2;
+inline bool BsTxMsg::has_fwjqmsg() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BsTxMsg::set_has_fwjqmsg() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BsTxMsg::clear_has_fwjqmsg() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BsTxMsg::clear_fwjqmsg() {
+  if (fwjqmsg_ != NULL) fwjqmsg_->::BsTxMsg_FwjqMsg::Clear();
+  clear_has_fwjqmsg();
+}
+inline const ::BsTxMsg_FwjqMsg& BsTxMsg::fwjqmsg() const {
+  return fwjqmsg_ != NULL ? *fwjqmsg_ : *default_instance_->fwjqmsg_;
+}
+inline ::BsTxMsg_FwjqMsg* BsTxMsg::mutable_fwjqmsg() {
+  set_has_fwjqmsg();
+  if (fwjqmsg_ == NULL) fwjqmsg_ = new ::BsTxMsg_FwjqMsg;
+  return fwjqmsg_;
+}
+inline ::BsTxMsg_FwjqMsg* BsTxMsg::release_fwjqmsg() {
+  clear_has_fwjqmsg();
+  ::BsTxMsg_FwjqMsg* temp = fwjqmsg_;
+  fwjqmsg_ = NULL;
+  return temp;
+}
+inline void BsTxMsg::set_allocated_fwjqmsg(::BsTxMsg_FwjqMsg* fwjqmsg) {
+  delete fwjqmsg_;
+  fwjqmsg_ = fwjqmsg;
+  if (fwjqmsg) {
+    set_has_fwjqmsg();
+  } else {
+    clear_has_fwjqmsg();
+  }
+}
+
+// optional .BsTxMsg.KfqqMsg kfqqMsg = 3;
+inline bool BsTxMsg::has_kfqqmsg() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void BsTxMsg::set_has_kfqqmsg() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void BsTxMsg::clear_has_kfqqmsg() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void BsTxMsg::clear_kfqqmsg() {
+  if (kfqqmsg_ != NULL) kfqqmsg_->::BsTxMsg_KfqqMsg::Clear();
+  clear_has_kfqqmsg();
+}
+inline const ::BsTxMsg_KfqqMsg& BsTxMsg::kfqqmsg() const {
+  return kfqqmsg_ != NULL ? *kfqqmsg_ : *default_instance_->kfqqmsg_;
+}
+inline ::BsTxMsg_KfqqMsg* BsTxMsg::mutable_kfqqmsg() {
+  set_has_kfqqmsg();
+  if (kfqqmsg_ == NULL) kfqqmsg_ = new ::BsTxMsg_KfqqMsg;
+  return kfqqmsg_;
+}
+inline ::BsTxMsg_KfqqMsg* BsTxMsg::release_kfqqmsg() {
+  clear_has_kfqqmsg();
+  ::BsTxMsg_KfqqMsg* temp = kfqqmsg_;
+  kfqqmsg_ = NULL;
+  return temp;
+}
+inline void BsTxMsg::set_allocated_kfqqmsg(::BsTxMsg_KfqqMsg* kfqqmsg) {
+  delete kfqqmsg_;
+  kfqqmsg_ = kfqqmsg;
+  if (kfqqmsg) {
+    set_has_kfqqmsg();
+  } else {
+    clear_has_kfqqmsg();
+  }
 }
 
 // -------------------------------------------------------------------
 
 // BsfkMsg
 
-// required uint32 nSerialId = 1;
-inline bool BsfkMsg::has_nserialid() const {
+// required uint32 nAuthenticationId = 1;
+inline bool BsfkMsg::has_nauthenticationid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void BsfkMsg::set_has_nserialid() {
+inline void BsfkMsg::set_has_nauthenticationid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void BsfkMsg::clear_has_nserialid() {
+inline void BsfkMsg::clear_has_nauthenticationid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void BsfkMsg::clear_nserialid() {
-  nserialid_ = 0u;
-  clear_has_nserialid();
+inline void BsfkMsg::clear_nauthenticationid() {
+  nauthenticationid_ = 0u;
+  clear_has_nauthenticationid();
 }
-inline ::google::protobuf::uint32 BsfkMsg::nserialid() const {
-  return nserialid_;
+inline ::google::protobuf::uint32 BsfkMsg::nauthenticationid() const {
+  return nauthenticationid_;
 }
-inline void BsfkMsg::set_nserialid(::google::protobuf::uint32 value) {
-  set_has_nserialid();
-  nserialid_ = value;
+inline void BsfkMsg::set_nauthenticationid(::google::protobuf::uint32 value) {
+  set_has_nauthenticationid();
+  nauthenticationid_ = value;
 }
 
-// required uint32 nRes = 2;
-inline bool BsfkMsg::has_nres() const {
+// required string sQtsentid = 2;
+inline bool BsfkMsg::has_sqtsentid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void BsfkMsg::set_has_nres() {
+inline void BsfkMsg::set_has_sqtsentid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void BsfkMsg::clear_has_nres() {
+inline void BsfkMsg::clear_has_sqtsentid() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void BsfkMsg::clear_sqtsentid() {
+  if (sqtsentid_ != &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_->clear();
+  }
+  clear_has_sqtsentid();
+}
+inline const ::std::string& BsfkMsg::sqtsentid() const {
+  return *sqtsentid_;
+}
+inline void BsfkMsg::set_sqtsentid(const ::std::string& value) {
+  set_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_ = new ::std::string;
+  }
+  sqtsentid_->assign(value);
+}
+inline void BsfkMsg::set_sqtsentid(const char* value) {
+  set_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_ = new ::std::string;
+  }
+  sqtsentid_->assign(value);
+}
+inline void BsfkMsg::set_sqtsentid(const char* value, size_t size) {
+  set_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_ = new ::std::string;
+  }
+  sqtsentid_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BsfkMsg::mutable_sqtsentid() {
+  set_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    sqtsentid_ = new ::std::string;
+  }
+  return sqtsentid_;
+}
+inline ::std::string* BsfkMsg::release_sqtsentid() {
+  clear_has_sqtsentid();
+  if (sqtsentid_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = sqtsentid_;
+    sqtsentid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void BsfkMsg::set_allocated_sqtsentid(::std::string* sqtsentid) {
+  if (sqtsentid_ != &::google::protobuf::internal::kEmptyString) {
+    delete sqtsentid_;
+  }
+  if (sqtsentid) {
+    set_has_sqtsentid();
+    sqtsentid_ = sqtsentid;
+  } else {
+    clear_has_sqtsentid();
+    sqtsentid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required uint32 nRes = 3;
+inline bool BsfkMsg::has_nres() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void BsfkMsg::set_has_nres() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void BsfkMsg::clear_has_nres() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void BsfkMsg::clear_nres() {
   nres_ = 0u;
@@ -356,6 +977,10 @@ inline void BsfkMsg::set_nres(::google::protobuf::uint32 value) {
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::BsTxMsg_recvtype>() {
+  return ::BsTxMsg_recvtype_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf

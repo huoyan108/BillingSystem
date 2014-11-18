@@ -1,9 +1,7 @@
-﻿生成启动时间为 2014-11-11 10:19:25。
+﻿生成启动时间为 2014-11-18 09:52:35。
      1>项目“D:\GitHub\BS\BS\BS.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\BS.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\BS.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BS.cpp DataBusiness.cpp DataOperate.cpp DataTransfer.cpp debuginfo.cpp IniOper.cpp PGDatabase.cpp PGRecordset.cpp proto\bcTx.pb.cc tools.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\BS.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt DataBusiness.cpp DataOperate.cpp DataTransfer.cpp IniOper.cpp PGDatabase.cpp PGRecordset.cpp PareData.cpp debuginfo.cpp main.cpp proto\bcTx.pb.cc tools.cpp
          tools.cpp
      1>d:\github\bs\bs\tools.cpp(1): warning C4627: “#include "tools.h"”:  在查找预编译头使用时跳过
                  将指令添加到“stdafx.h”或重新生成预编译头
@@ -31,7 +29,41 @@
                  将指令添加到“stdafx.h”或重新生成预编译头
      1>d:\github\bs\bs\proto\bctx.pb.cc(16): warning C4627: “#include <google/protobuf/wire_format.h>”:  在查找预编译头使用时跳过
                  将指令添加到“stdafx.h”或重新生成预编译头
-     1>d:\github\bs\bs\proto\bctx.pb.cc(665): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+     1>d:\github\bs\bs\proto\bctx.pb.cc(1439): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+         main.cpp
+     1>d:\github\bs\bs\main.cpp(2): warning C4627: “#include <unistd.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\main.cpp(3): warning C4627: “#include <cstdlib>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\main.cpp(4): warning C4627: “#include <iostream>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\main.cpp(5): warning C4627: “#include <sys/types.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\main.cpp(6): warning C4627: “#include <sys/wait.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\main.cpp(7): warning C4627: “#include "debuginfo.cpp"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\main.cpp(8): warning C4627: “#include "IniOper.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\main.cpp(9): warning C4627: “#include <vector>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\main.cpp(11): warning C4627: “#include "DataBusiness.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\main.cpp(148): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+         debuginfo.cpp
+     1>d:\github\bs\bs\debuginfo.cpp(5): warning C4627: “#include <stdarg.h>”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\debuginfo.cpp(6): warning C4627: “#include "tools.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\debuginfo.cpp(21): warning C4005: “DEBUG_INFO”: 宏重定义
+                 d:\github\bs\bs\debuginfo.cpp(18) : 参见“DEBUG_INFO”的前一个定义
+     1>d:\github\bs\bs\debuginfo.cpp(22): warning C4005: “DEBUG_DUMP”: 宏重定义
+                 d:\github\bs\bs\debuginfo.cpp(19) : 参见“DEBUG_DUMP”的前一个定义
+     1>d:\github\bs\bs\debuginfo.cpp(113): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+         PareData.cpp
+     1>d:\github\bs\bs\paredata.cpp(1): warning C4627: “#include "PareData.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\paredata.cpp(253): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
          PGRecordset.cpp
      1>d:\github\bs\bs\pgrecordset.cpp(1): warning C4627: “#include "PGRecordset.h"”:  在查找预编译头使用时跳过
                  将指令添加到“stdafx.h”或重新生成预编译头
@@ -56,22 +88,12 @@
      1>d:\github\bs\bs\inioper.cpp(5): warning C4627: “#include <iostream>”:  在查找预编译头使用时跳过
                  将指令添加到“stdafx.h”或重新生成预编译头
      1>d:\github\bs\bs\inioper.cpp(465): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
-         debuginfo.cpp
-     1>d:\github\bs\bs\debuginfo.cpp(5): warning C4627: “#include <stdarg.h>”:  在查找预编译头使用时跳过
-                 将指令添加到“stdafx.h”或重新生成预编译头
-     1>d:\github\bs\bs\debuginfo.cpp(6): warning C4627: “#include "tools.h"”:  在查找预编译头使用时跳过
-                 将指令添加到“stdafx.h”或重新生成预编译头
-     1>d:\github\bs\bs\debuginfo.cpp(21): warning C4005: “DEBUG_INFO”: 宏重定义
-                 d:\github\bs\bs\debuginfo.cpp(18) : 参见“DEBUG_INFO”的前一个定义
-     1>d:\github\bs\bs\debuginfo.cpp(22): warning C4005: “DEBUG_DUMP”: 宏重定义
-                 d:\github\bs\bs\debuginfo.cpp(19) : 参见“DEBUG_DUMP”的前一个定义
-     1>d:\github\bs\bs\debuginfo.cpp(113): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
          DataTransfer.cpp
      1>d:\github\bs\bs\datatransfer.cpp(1): warning C4627: “#include "DataTransfer.h"”:  在查找预编译头使用时跳过
                  将指令添加到“stdafx.h”或重新生成预编译头
-     1>d:\github\bs\bs\datatransfer.cpp(72): warning C4627: “#include "./proto/smsTx.pb.h"”:  在查找预编译头使用时跳过
+     1>d:\github\bs\bs\datatransfer.cpp(2): warning C4627: “#include "./proto/bcTx.pb.h"”:  在查找预编译头使用时跳过
                  将指令添加到“stdafx.h”或重新生成预编译头
-     1>d:\github\bs\bs\datatransfer.cpp(195): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
+     1>d:\github\bs\bs\datatransfer.cpp(208): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
          DataOperate.cpp
      1>d:\github\bs\bs\dataoperate.h(9): error C2146: 语法错误: 缺少“;”(在标识符“ExplainData_BD”的前面)
      1>d:\github\bs\bs\dataoperate.h(9): error C4430: 缺少类型说明符 - 假定为 int。注意:  C++ 不支持默认 int
@@ -224,13 +246,14 @@
                  将指令添加到“stdafx.h”或重新生成预编译头
      1>d:\github\bs\bs\databusiness.cpp(2): warning C4627: “#include "IniOper.h"”:  在查找预编译头使用时跳过
                  将指令添加到“stdafx.h”或重新生成预编译头
-     1>d:\github\bs\bs\databusiness.cpp(3): warning C4627: “#include "UnitsManager.h"”:  在查找预编译头使用时跳过
+     1>d:\github\bs\bs\databusiness.cpp(3): warning C4627: “#include <cstdlib>”:  在查找预编译头使用时跳过
                  将指令添加到“stdafx.h”或重新生成预编译头
-     1>d:\github\bs\bs\databusiness.cpp(237): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
-         BS.cpp
+     1>d:\github\bs\bs\databusiness.cpp(4): warning C4627: “#include "./proto/bcTx.pb.h"”:  在查找预编译头使用时跳过
+                 将指令添加到“stdafx.h”或重新生成预编译头
+     1>d:\github\bs\bs\databusiness.cpp(323): fatal error C1010: 在查找预编译头时遇到意外的文件结尾。是否忘记了向源中添加“#include "stdafx.h"”?
          正在生成代码...
      1>已完成生成项目“D:\GitHub\BS\BS\BS.vcxproj”(Build 个目标)的操作 - 失败。
 
 生成失败。
 
-已用时间 00:00:03.89
+已用时间 00:00:01.17

@@ -6,7 +6,7 @@
 using namespace std;
 #include "DataTransfer.h"
 #include "PGDatabase.h"
-#include "PareData.h"
+//#include "PareData.h"
 class CDataBusiness
 {
 public:
@@ -31,7 +31,7 @@ protected:
 	int SetBusiessData(tagBstxMsg *pCommReq);
 
 	//解析打包
-	CPareData parseData;
+	//CPareData parseData;
 
 	//数据处理列表
 	//list<CommReq *> m_dataList;

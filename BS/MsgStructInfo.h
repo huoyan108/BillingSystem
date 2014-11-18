@@ -1,5 +1,7 @@
 #ifndef _MSGSTRUCTINFO_H_
 #define _MSGSTRUCTINFO_H_
+#include <string>
+using namespace std;
 
 #define DWORD unsigned long
 #define BYTE unsigned char
@@ -21,30 +23,42 @@
 #define LIST_COUNT_WAIT_FOR_SEND  20  //队列中存放的数据
 
 enum{
-	CUNPACK_NULL = 0,
-	CUNPACK_FWJQ,		//服务鉴权 01
-	CUNPACK_KFQQ,		//扣费请求 02
-	CUNPACK_JQJG,		//鉴权信息 03
+	TX_NULL = 0,
+	TX_FWJQ,		//服务鉴权 01
+	TX_KFQQ,		//扣费请求 02
+	TX_JQJG,		//鉴权信息 03
 };
 
 typedef struct tagBstxMsg
 {
-	DWORD dwSerialID;			//发送序号
-	WORD nQtscardnumber;	//IC卡号
-	WORD		 nCategory;		//产品类型
+	//请求类型
+	WORD nType;
+
+	//鉴权索引
+	DWORD nAuthenticationId;
+	//企业编号
+	string sQtsentid;
+	//服务类型
+	WORD	 nCategory;
+	//接收方
+	DWORD nRecvId;
+
+//	DWORD dwSerialID;			//发送序号
+//	WORD nQtscardnumber;	//IC卡号
+//	WORD		 nCategory;		//产品类型
 
 }BstxMsg;
 
-enum ResEnum{ PERMISSION, STATEERROR, NOMONEY, TEACHDATE, NOREGISTER, NOCATEGORY };
+enum ResEnum{ PERMISSION, NOCATEGORY, NOMONEY, STATEERROR, TEACHDATE, NOREGISTER };
 typedef struct tagBsResMsg
 {
-	DWORD dwSerialID;		//发送序号
+	
+	DWORD nAuthenticationId;   //鉴权索引
 	ResEnum nRes;				//验证结果		0:ok,1:state error,2:no money,3:teach date,4:no register,5 no category
-	bool bIsRecord;				//是否记录
-	char cQtsentid[20];		//企业ID
-	WORD nQtscardnumber;		//IC卡号
-	char cQtsproductid[20]; //产品标识
-	float fQtdamount;			//金额
+	string sQtsentid;
+	//WORD nQtscardnumber;		//IC卡号
+	//char cQtsproductid[20]; //产品标识
+	//float fQtdamount;			//金额
 	//char cTimestamp[20];	//扣费时间
 }BsresMsg;
 

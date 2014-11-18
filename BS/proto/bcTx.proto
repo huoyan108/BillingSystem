@@ -8,21 +8,23 @@ message BsTxMsg
 	}
 	message FwjqMsg
 	{
-		required uint32 nAuthenticationId;		//鉴权ID
-		required string  sQtsentid;						//企业ID
-		required uint32	nCategory;					//服务类型
+		required uint32 nAuthenticationId =1;	
+		required string  sQtsentid = 2;	
+		required uint32	nCategory = 3;
 	}
 	message KfqqMsg
 	{
-		required string  sQtsentid;						//企业ID
-		required uint32	nCategory						//服务类型
-		required string sJSF;								//接收方
+		required string  sQtsentid = 1;
+		required uint32	nCategory	 = 2;
+		required uint32 nRecvid =3;	
 	}
-	optional FwjqMsg fwjq;
-	optional KfqqMsg kfqq;
+	required recvtype  nRecvType = 1[default = FWJQ];
+	optional FwjqMsg fwjqMsg =2;
+	optional KfqqMsg kfqqMsg =3;
 }
 message BsfkMsg
 {
-	required uint32 nSerialId = 1;
-	required uint32 nRes = 2;   //0:ok,1:state error,2:no money,3:teach date,4:no register,5 no category
+	required uint32 nAuthenticationId =1;	
+	required string  sQtsentid = 2;	
+	required uint32 nRes = 3;   //0:ok,1:state error,2:no money,3:teach date,4:no register,5 no category
 }

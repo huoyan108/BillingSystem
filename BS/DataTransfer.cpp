@@ -123,9 +123,24 @@ int CDataTransfer::RecvData()
 			{
 				tagBstxMsg tagBstx;
 
-				tagBstx.dwSerialID = bstxMsg.nserialid();
-				tagBstx.nQtscardnumber = bstxMsg.nqtscardnumber();
-				tagBstx.nCategory = bstxMsg.nqtdcategory();
+				tagBstx.nType = bstxMsg.nrecvtype();
+				if (tagBstx.nType == TX_FWJQ)
+				{
+					tagBstx.nAuthenticationId = bstxMsg.fwjqmsg().nauthenticationid();
+					tagBstx.sQtsentid = bstxMsg.fwjqmsg().sqtsentid();
+					tagBstx.nCategory = bstxMsg.fwjqmsg().ncategory();
+
+				}
+				else if (tagBstx.nType == TX_KFQQ)
+				{
+					tagBstx.sQtsentid = bstxMsg.kfqqmsg().sqtsentid();
+					tagBstx.nCategory = bstxMsg.kfqqmsg().ncategory();
+					tagBstx.nRecvId = bstxMsg.kfqqmsg().nrecvid();
+				}
+				else
+				{
+					return FALSE;
+				}
 				
 				//存入数据处理列表
 				m_notifFun(m_sSendSource, (void *)&tagBstx);
