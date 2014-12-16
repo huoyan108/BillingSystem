@@ -32,7 +32,14 @@ CDataBusiness::CDataBusiness()
 	}
 	strcat(cPath, "ini.lua");
 
-	//获取参数
+	//获取信息单价
+	if (ini.loadCost(cPath, &g_fSingleCost) != 0)
+	{
+		printf("read g_fSingleCost ini error!\n");
+		exit(0);
+	}
+
+	//获取通信参数
 	int nRequestPort;
 	int nRespondPort;
 	char cSoftName[100];
@@ -40,7 +47,7 @@ CDataBusiness::CDataBusiness()
 
 	if (ini.load(cPath, &nRequestPort, &nRespondPort, cSoftName) != 0)
 	{
-		printf("read ini error!\n");
+		printf("read tx ini error!\n");
 		exit(0);
 	}
 	
@@ -57,7 +64,7 @@ CDataBusiness::CDataBusiness()
 	char dbpwd[100];
 	if (ini.load(cPath, dbhost,dbport,dbname,dbuser,dbpwd) != 0)
 	{
-		printf("read ini error!\n");
+		printf("read db ini error!\n");
 
 		exit(0);
 	}
@@ -74,7 +81,7 @@ CDataBusiness::CDataBusiness()
 
 		exit(0);
 	}
-	printf("connect Db OK\n");
+	printf("connect Db OK\n");	
 }
 
 
@@ -148,8 +155,8 @@ int CDataBusiness::SetBusiessData(tagBstxMsg *pCommReq)
 		bzero(sSql, sizeof(sSql));
 		PGRecordset* res = NULL;
 		
-		//查询企业ID,总金额
-		sprintf(sSql, "select qtsentId,qtdamount from qhenterprise where  qtsentId = '%s'", pCommReq->sQtsentid.c_str());
+		//查询企业ID,总金额，是否限制
+		sprintf(sSql, "select qtsentId,qtdamount,qtdIsdeleted from qhenterprise where  qtsentId = '%s'", pCommReq->sQtsentid.c_str());
 		res = m_db.Query(sSql);
 
 		float fQtdamount = 0.0;
@@ -159,19 +166,31 @@ int CDataBusiness::SetBusiessData(tagBstxMsg *pCommReq)
 		char cQtdamount[20];
 		bzero(cQtdamount, sizeof(cQtdamount));
 
+		char cQtdIsdeleted[20];
+		bzero(cQtdIsdeleted, sizeof(cQtdIsdeleted));
+		int nQtdIsdeleted = 0;
 		if (res != NULL)
 		{
 			printf("qtsentId,qtdamount has %d rows", res->GetTupleCount());
 
 			strcat(cQtsentId, res->GetValue(0, 0));
 			strcat(cQtdamount, res->GetValue(0, 1));
+			strcat(cQtdIsdeleted, res->GetValue(0, 2));
 
 			fQtdamount = atof(cQtdamount);
-
+			nQtdIsdeleted = atoi(cQtdIsdeleted);
 			printf("sQtsentId: %s\n", cQtsentId);
 			printf("sQtdamount: %s\n", cQtdamount);
+			printf("nQtdIsdeleted: %d\n", nQtdIsdeleted);
 
 			res->Destroy();
+			if (nQtdIsdeleted == 0)
+			{
+				printf("no server.\n");
+				tagResInfo.nRes = NOSERVER;
+				SetFeedResData(tagResInfo);
+				return -1;
+			}
 		}
 		else
 		{
@@ -290,16 +309,67 @@ int CDataBusiness::SetBusiessData(tagBstxMsg *pCommReq)
 		strcat(cCurrtime, asctime(timeinfo));
 
 		char sSql[256];
-		bzero(sSql, sizeof(sSql));
 
-		sprintf(sSql, "insert into qhcharging(qtscharid,qtsentid,qtscardnumber,qtsproductid,qtdamount,qtnchargtime) values (bss_bdfs_id_seq.nextval,'%s',%ld,%d,%f,to_date('%s','YYYY-MM-DD H24:MI:SS'))",
-			(char *)pCommReq->sQtsentid.c_str(),
-			pCommReq->nRecvId,
-			pCommReq->nCategory,
-			g_fSingleCost,
-			cCurrtime);
-			m_db.Exec(sSql);
-			return 0;
+		PGRecordset* res = NULL;
+
+		//产品ID,开始时间、结束时间)
+		sprintf(sSql, "select qtsproductid,to_char(qtnbegintime,'YYYY-MM-DD HH24:MI:SS'),to_char(qtnendtime,'YYYY-MM-DD HH24:MI:SS') from qhentproductmapping,qhproductinfo where qhentproductmapping.qtsproductid=qhproductinfo.qtsproductid and qhproductinfo.qtdcategory=%d and qhentproductmapping.qtsentid = '%s'",
+			pCommReq->nCategory, pCommReq->sQtsentid);
+		res = m_db.Query(sSql);
+
+		char cQtsproductid[20];
+		bzero(cQtsproductid, sizeof(cQtsproductid));
+
+		char cQtnbegintime[20];
+		bzero(cQtnbegintime, sizeof(cQtnbegintime));
+
+		char cQtnendtime[20];
+		bzero(cQtnendtime, sizeof(cQtnendtime));
+
+		if (res != NULL)
+		{
+			printf("qtnbegintime,qtnendtime,qtdmessagecount has %d rows", res->GetTupleCount());
+
+			strcat(cQtsproductid, res->GetValue(0, 0));
+			strcat(cQtnbegintime, res->GetValue(0, 1));
+			strcat(cQtnendtime, res->GetValue(0, 2));
+
+
+			printf("sqtsproductid: %s\n", cQtsproductid);
+			printf("sQtnbegintime: %s\n", cQtnbegintime);
+			printf("sQtnendtime: %s\n", cQtnendtime);
+
+			res->Destroy();
+
+			//逐条扣费
+			if (cQtnendtime == NULL)
+			{
+				bzero(sSql, sizeof(sSql));
+
+				sprintf(sSql, "update  qhenterprise set qtdamount = qtdamount-%d ",
+					g_fSingleCost);
+				m_db.Exec(sSql);
+
+				bzero(sSql, sizeof(sSql));
+				sprintf(sSql, "insert into qhcharging(qtscharid,qtsentid,qtdrecver,qtdxxtype,qtdamount,qtnchargtime,qtsitems,qtsserial) values (bss_bdfs_id_seq.nextval,'%s',%ld,%d,%f,to_date('%s','YYYY-MM-DD H24:MI:SS'),%d)",
+					(char *)pCommReq->sQtsentid.c_str(),
+					pCommReq->nRecvId,
+					pCommReq->nCategory,
+					g_fSingleCost,
+					cCurrtime,
+					"逐条扣费",
+					'c');
+				m_db.Exec(sSql);
+				return 0;
+			}
+		}
+		else
+		{
+			//没有服务产品
+			printf("no category.\n");
+			return -1;
+		}
+
 
 	}
 	else

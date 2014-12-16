@@ -8,3 +8,5 @@ login="user_fwpt_yw"
 passwd="123456"
 
 softname="BDSMS"
+
+singlecost= 0.1

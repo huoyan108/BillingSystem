@@ -36,10 +36,14 @@ public:
 	CIniOper();
 	~CIniOper();
 	int GetSoftPath(char *cPath, int nSize);
+	//获取通信配置信息
 	int load(char *filename, int *nRequestPort, int *nRespondPort,char *pSoftName);
+	//获取数据库配置信息
 	int load(char *filename, char *dbhost, char * dbport, char * dbname, char * dbuser, char * dbpwd);
 	int loadComDev(char *filename, vector<COM_DEV_TAG> &devArr);
 	int loadComDev1(char *filename, vector<COM_DEV_TAG> &devArr);
+	//获得单价
+	int loadCost(char *filename, float *fSingleCost);
 
 protected:
 	// 获取设备参数table的内容

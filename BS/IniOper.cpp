@@ -189,6 +189,33 @@ int CIniOper::GetDevTableValue(lua_State *L, COM_DEV_TAG &devTag, int tablePos)
 	lua_pop(L, 1);
 	return 0;
 }
+int  CIniOper::loadCost(char *filename, float *fSingleCost)
+{
+	lua_State *L = luaL_newstate();
+	luaL_openlibs(L);
+
+	if (luaL_loadfile(L, filename) || lua_pcall(L, 0, 0, 0))
+	{
+		//error(L, "cannot run configuration file: %s",
+		//lua_tostring(L, -1));
+		return -1;
+	}
+
+	lua_getglobal(L, "singlecost");
+
+	if (!lua_isnumber(L, -1))
+	{
+		//error(L, "`RequestPort' should be a number\n");
+		return -1;
+	}
+
+	*fSingleCost = (float)lua_tonumber(L, -1);
+
+	lua_pop(L, 1);
+
+	lua_close(L);
+	return 0;
+}
 
 int  CIniOper::load(char *filename, int *nRequestPort, int *nRespondPort, char *pSoftName)
 {
